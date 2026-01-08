@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static void	ft_sort_basic(t_sort *sort)
+static void ft_sort_basic(t_sort *sort)
 {
 	while (sort->stack_b)
 		ft_sort_b(sort);
@@ -12,10 +12,10 @@ static void	ft_sort_basic(t_sort *sort)
 	}
 }
 
-static void	ft_sort_small(t_list **stack, t_sort *sort)
+static void ft_sort_small(t_list **stack, t_sort *sort)
 {
-	short	mid_reduce;
-	t_list	*stack_copy;
+	short mid_reduce;
+	t_list *stack_copy;
 
 	mid_reduce = 0;
 	sort->iteration = 700;
@@ -33,16 +33,21 @@ static void	ft_sort_small(t_list **stack, t_sort *sort)
 	}
 }
 
-static void	ft_sort_large(t_sort *sort)
+static void ft_sort_large(t_sort *sort)
 {
 	ft_presort_a(sort, 0);
 	ft_sort_basic(sort);
 	ft_free_stack(sort->stack_a);
 }
 
-void	ft_sort(t_list **stack)
+/**
+ * @brief Sorts the stack using different strategies based on its size.
+ *
+ * @param stack Pointer to the stack to be sorted.
+ */
+void ft_sort(t_list **stack)
 {
-	t_sort	sort;
+	t_sort sort;
 
 	ft_reset_sort(&sort);
 	sort.stack_a = *stack;

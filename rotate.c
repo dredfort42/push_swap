@@ -1,9 +1,9 @@
 #include "push_swap.h"
 
-static void	ft_rotate(t_list **stack)
+static void ft_rotate(t_list **stack)
 {
-	t_list	*tmp1;
-	t_list	*tmp2;
+	t_list *tmp1;
+	t_list *tmp2;
 
 	if (*stack)
 	{
@@ -15,24 +15,24 @@ static void	ft_rotate(t_list **stack)
 	}
 }
 
-void	ft_ra(t_sort *sort)
+void ft_ra(t_sort *sort)
 {
 	ft_rotate(&sort->stack_a);
 	sort->iteration++;
-	ft_lstadd_back(&sort->commands, ft_lstnew(7));
+	ft_lstadd_back(&sort->commands, ft_lstnew(RA));
 }
 
-void	ft_rb(t_sort *sort)
+void ft_rb(t_sort *sort)
 {
 	ft_rotate(&sort->stack_b);
 	sort->iteration++;
-	ft_lstadd_back(&sort->commands, ft_lstnew(8));
+	ft_lstadd_back(&sort->commands, ft_lstnew(RB));
 }
 
-void	ft_rr(t_sort *sort)
+void ft_rr(t_sort *sort)
 {
 	ft_rotate(&sort->stack_a);
 	ft_rotate(&sort->stack_b);
 	sort->iteration++;
-	ft_lstadd_back(&sort->commands, ft_lstnew(9));
+	ft_lstadd_back(&sort->commands, ft_lstnew(RR));
 }

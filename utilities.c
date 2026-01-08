@@ -76,6 +76,12 @@ int ft_is_num_in_stack(int num, t_list *stack)
 	return (FALSE);
 }
 
+/**
+ * @brief Assigns an order to the smallest unprocessed element in the stack.
+ *
+ * @param sort Pointer to the sorting structure containing the stack.
+ * @param i The order to assign.
+ */
 static void ft_order(t_sort *sort, int i)
 {
 	int min;
@@ -100,6 +106,11 @@ static void ft_order(t_sort *sort, int i)
 	}
 }
 
+/**
+ * @brief Determines the order of elements in the stack.
+ *
+ * @param sort Pointer to the sorting structure containing the stack.
+ */
 void ft_determine_order(t_sort *sort)
 {
 	int i;

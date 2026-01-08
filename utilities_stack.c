@@ -15,6 +15,11 @@ t_list *ft_stack_copy(t_list **stack)
 	return (stack_copy);
 }
 
+/**
+ * @brief Frees the memory allocated for the stack.
+ *
+ * @param stack The stack to be freed.
+ */
 void ft_free_stack(t_list *stack)
 {
 	t_list *next;
@@ -49,6 +54,12 @@ short ft_is_stack_sorted(t_list *stack)
 	return (TRUE);
 }
 
+/**
+ * @brief Finds the maximum order value in the linked list.
+ *
+ * @param lst The linked list to search.
+ * @return short The maximum order value found in the list.
+ */
 short ft_lst_max_order(t_list *lst)
 {
 	short max_order;
@@ -65,6 +76,12 @@ short ft_lst_max_order(t_list *lst)
 	return (max_order);
 }
 
+/**
+ * @brief Finds the minimum order value in the linked list.
+ *
+ * @param lst The linked list to search.
+ * @return short The minimum order value found in the list.
+ */
 short ft_lst_min_order(t_list *lst)
 {
 	short min_order;
