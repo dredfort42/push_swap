@@ -1,10 +1,16 @@
 #include "push_swap.h"
 
-long int	ft_atoi(char *str)
+/**
+ * @brief Converts a string to a long integer.
+ *
+ * @param str The input string.
+ * @return long int The converted long integer.
+ */
+long int ft_atoi(char *str)
 {
-	short			i;
-	short			sign;
-	long long int	num;
+	short i;
+	short sign;
+	long long int num;
 
 	i = 0;
 	sign = 1;
@@ -24,10 +30,16 @@ long int	ft_atoi(char *str)
 		return (-num);
 }
 
-short	ft_digits_in_str(char *str)
+/**
+ * @brief Counts the number of digit characters in a string.
+ *
+ * @param str The input string.
+ * @return short The count of digit characters.
+ */
+short ft_digits_in_str(char *str)
 {
-	short	i;
-	short	j;
+	short i;
+	short j;
 
 	i = 0;
 	j = 0;
@@ -43,24 +55,31 @@ short	ft_digits_in_str(char *str)
 	return (j);
 }
 
-int	ft_check_num_include(int num, t_list *stack)
+/**
+ * @brief Checks if a number is already included in the stack.
+ *
+ * @param num The number to check.
+ * @param stack The stack to search in.
+ * @return int Returns TRUE if the number is found, FALSE otherwise.
+ */
+int ft_is_num_in_stack(int num, t_list *stack)
 {
-	t_list	*p;
+	t_list *p;
 
 	p = stack;
 	while (p)
 	{
 		if (p->number == num)
-			return (1);
+			return (TRUE);
 		p = p->next;
 	}
-	return (0);
+	return (FALSE);
 }
 
-static void	ft_order(t_sort *sort, int i)
+static void ft_order(t_sort *sort, int i)
 {
-	int		min;
-	t_list	*p;
+	int min;
+	t_list *p;
 
 	p = sort->stack_a;
 	while (p->order)
@@ -81,10 +100,10 @@ static void	ft_order(t_sort *sort, int i)
 	}
 }
 
-void	ft_determine_order(t_sort *sort)
+void ft_determine_order(t_sort *sort)
 {
-	int		i;
-	int		lst_size;
+	int i;
+	int lst_size;
 
 	i = 0;
 	lst_size = ft_lstsize(sort->stack_a);

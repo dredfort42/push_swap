@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-short 	ft_error_ck(t_sort *sort)
+short ft_error_ck(t_sort *sort)
 {
 	ft_free_stack(sort->stack_a);
 	ft_free_stack(sort->stack_b);
@@ -9,18 +9,16 @@ short 	ft_error_ck(t_sort *sort)
 	exit(0);
 }
 
-static short 	ft_parsing_string_ck(char *str, t_sort *sort)
+static short ft_parsing_string_ck(char *str, t_sort *sort)
 {
-	int			i;
-	long int	tmp;
+	int i;
+	long int tmp;
 
 	i = 0;
 	while (str[i])
 	{
 		tmp = ft_atoi(&str[i]);
-		if (tmp > INT_MAX || tmp < INT_MIN
-			|| !ft_digits_in_str(&str[i])
-			|| ft_check_num_include(tmp, sort->stack_a))
+		if (tmp > INT_MAX || tmp < INT_MIN || !ft_digits_in_str(&str[i]) || ft_is_num_in_stack(tmp, sort->stack_a))
 			return (0);
 		ft_lstadd_back(&sort->stack_a, ft_lstnew(tmp));
 		while (str[i] && str[i] != ' ')
@@ -31,10 +29,10 @@ static short 	ft_parsing_string_ck(char *str, t_sort *sort)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	t_sort	sort;
-	int		i;
+	t_sort sort;
+	int i;
 
 	ft_reset_sort(&sort);
 	sort.stack_a = 0;

@@ -1,10 +1,16 @@
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int content)
+/**
+ * @brief Creates a new list element with the given content.
+ *
+ * @param content The integer content for the new element.
+ * @return t_list* The newly created list element.
+ */
+t_list *ft_lstnew(int content)
 {
-	t_list	*p;
+	t_list *p;
 
-	p = malloc(sizeof(t_list));
+	p = (t_list *)malloc(sizeof(t_list));
 	if (!p)
 		return (0);
 	p->next = 0;
@@ -14,9 +20,15 @@ t_list	*ft_lstnew(int content)
 	return (p);
 }
 
-t_list	*ft_lstlast(t_list *lst)
+/**
+ * @brief Returns the last element of the list.
+ *
+ * @param lst The beginning of the list.
+ * @return t_list* The last element of the list.
+ */
+t_list *ft_lstlast(t_list *lst)
 {
-	t_list	*p;
+	t_list *p;
 
 	if (!lst)
 		return (0);
@@ -26,7 +38,13 @@ t_list	*ft_lstlast(t_list *lst)
 	return (p);
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+/**
+ * @brief Adds a new element at the end of the list.
+ *
+ * @param lst The address of the pointer to the first link of the list.
+ * @param new The new element to be added to the list.
+ */
+void ft_lstadd_back(t_list **lst, t_list *new)
 {
 	if (lst)
 	{
@@ -37,9 +55,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 }
 
-int	ft_lstsize(t_list *lst)
+/**
+ * @brief Counts the number of elements in the list.
+ *
+ * @param lst The beginning of the list.
+ * @return int The number of elements in the list.
+ */
+int ft_lstsize(t_list *lst)
 {
-	int	i;
+	int i;
 
 	if (!lst)
 		return (0);
@@ -52,7 +76,12 @@ int	ft_lstsize(t_list *lst)
 	return (i);
 }
 
-void	ft_reset_sort(t_sort *sort)
+/**
+ * @brief Resets the sorting structure to its initial state.
+ *
+ * @param sort The sorting structure to reset.
+ */
+void ft_reset_sort(t_sort *sort)
 {
 	sort->stack_a = 0;
 	sort->stack_b = 0;

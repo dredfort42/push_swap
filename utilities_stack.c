@@ -1,9 +1,9 @@
 #include "push_swap.h"
 
-t_list	*ft_stack_copy(t_list **stack)
+t_list *ft_stack_copy(t_list **stack)
 {
-	t_list	*p;
-	t_list	*stack_copy;
+	t_list *p;
+	t_list *stack_copy;
 
 	p = *stack;
 	stack_copy = 0;
@@ -15,9 +15,9 @@ t_list	*ft_stack_copy(t_list **stack)
 	return (stack_copy);
 }
 
-void	ft_free_stack(t_list *stack)
+void ft_free_stack(t_list *stack)
 {
-	t_list	*next;
+	t_list *next;
 
 	next = 0;
 	while (stack && stack->next)
@@ -29,24 +29,30 @@ void	ft_free_stack(t_list *stack)
 	free(stack);
 }
 
-short	ft_is_stack_sorted(t_list *stack)
+/**
+ * @brief Checks if the stack is sorted in ascending order.
+ *
+ * @param stack The stack to check.
+ * @return short Returns TRUE if sorted, FALSE otherwise.
+ */
+short ft_is_stack_sorted(t_list *stack)
 {
-	t_list	*p;
+	t_list *p;
 
 	p = stack;
 	while (p->next)
 	{
 		if (p->number > p->next->number)
-			return (0);
+			return (FALSE);
 		p = p->next;
 	}
-	return (1);
+	return (TRUE);
 }
 
-short 	ft_lst_max_order(t_list *lst)
+short ft_lst_max_order(t_list *lst)
 {
-	short	max_order;
-	t_list	*p;
+	short max_order;
+	t_list *p;
 
 	max_order = 0;
 	p = lst;
@@ -59,10 +65,10 @@ short 	ft_lst_max_order(t_list *lst)
 	return (max_order);
 }
 
-short	ft_lst_min_order(t_list *lst)
+short ft_lst_min_order(t_list *lst)
 {
-	short	min_order;
-	t_list	*p;
+	short min_order;
+	t_list *p;
 
 	p = lst;
 	min_order = p->order;
